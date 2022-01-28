@@ -1,0 +1,24 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: test-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: feed809e-e492-43b1-bf5d-fe2ee107b0a3
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: test-demo1
+          uri: lb://test-demo1
+          predicates:
+            - Path=/test-demo1/**
+        - id: test-demo2
+          uri: lb://test-demo2
+          predicates:
+            - Path=/test-demo2/**

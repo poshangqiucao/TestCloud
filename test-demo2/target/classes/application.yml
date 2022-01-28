@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: test-demo2
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pikachu?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: password
+    type: com.alibaba.druid.pool.DruidDataSource
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: feed809e-e492-43b1-bf5d-fe2ee107b0a3
+    alibaba:
+      seata:
+        tx-service-group: demo2_group
